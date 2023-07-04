@@ -3,12 +3,29 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    color: #FFFF;
+    color: var(--text-color);
     font-size: 16px;
   }
 
+  :root {
+    --text-color: white;
+    --bg: url(./img/bg-desktop.png);
+    --bg-ul: rgba(255, 255, 255, 0.10);
+    --bg-ul-hover: rgba(255, 255, 255, 0.024);
+    --border-color: rgba(255, 255, 255, 0.50);
+    --switch-bg-url: url(./img/btn-dark.svg);
+  }
+
+  .light {
+    --text-color: #1A1A1A;
+    --bg: url(./img/bg-desktop-light.png);
+    --bg-ul: rgba(255, 255, 255, 0.10);
+    --bg-ul-hover: rgba(255, 255, 255, 0.413);
+    --border-color: rgba(0, 0, 0, 0.50);
+  }
+
   body {
-    background: url("./img/background-desktop.png");
+    background: var(--bg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -53,8 +70,8 @@
     align-items: center;
     justify-content: center;
     padding: 16px 24px;
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.50);
+    background: var(--bg-ul);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -65,7 +82,7 @@
   }
 
   ul li a:hover {
-    background: rgba(255, 255, 255, 0.024);
+    background: var(--bg-ul-hover);
     border: 1.5px solid ;
   }
 
@@ -82,8 +99,33 @@
     font-size: 14px;
   }
 
-  @media (max-width: 500px) {
-    body {background: url("./img/background-mobile.png");
-    background-repeat: no-repeat;
-    background-size: cover;}
+  .box-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .switch {
+    padding: 5px 15px;
+    background: var(--bg-ul);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .switch:hover {
+    background: var(--bg-ul-hover);
+    border: 1px solid ;
+  }
+
+  @media (max-width: 700px) {
+    :root {
+      --bg: url(./img/bg-mobile.png);
+    }
+  
+    .light {
+      --bg: url(./img/bg-mobile-light.png);
+    }
   }
